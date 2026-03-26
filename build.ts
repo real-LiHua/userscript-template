@@ -8,16 +8,16 @@ const tags = {
   "@copyright": pkg.license,
   "@version": pkg.version,
   "@description": pkg.description,
+  "@author": pkg.author ?? "you",
+  "@match": pkg.config?.match ?? [],
   "@icon": pkg.config?.icon,
   "@icon64": pkg.config?.icon64,
   "@grant": [],
-  "@author": pkg.author ?? "you",
   "@homepage": pkg.homepage,
   "@antifeature": pkg.config?.antifeature ?? [],
   "@require": pkg.config?.require ?? [],
   "@resource": pkg.config?.resource ?? [],
   "@include": pkg.config?.include ?? [],
-  "@match": pkg.config?.match ?? [],
   "@exclude": pkg.config?.exclude ?? [],
   "@run-at": pkg.config?.["run-at"],
   "@run-in": pkg.config?.["run-in"],
@@ -45,7 +45,7 @@ for (const file of await Array.fromAsync(
   }
 }
 
-for (const api of apis) {
+for (const api of [...apis].sort()) {
   (tags["@grant"] as string[]).push(api);
 }
 
