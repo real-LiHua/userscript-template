@@ -10,6 +10,7 @@
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
+    "lint:github": "oxlint --format=github",
     "prepare": "husky",
     "preview": "bun run node_modules/tamperdav"
   },
