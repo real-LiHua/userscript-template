@@ -62,30 +62,25 @@ const headerLines = Object.entries(tags).flatMap(([label, value]) => {
   return [`// ${label}${padding} ${value}`];
 });
 
-const banner = [
-  "// ==UserScript==",
-  ...headerLines,
-  "// ==/UserScript==",
-  "(function(){",
-  '"use strict";',
-].join("\n");
-
-const footer = "})();";
+const banner = ["// ==UserScript==", ...headerLines, "// ==/UserScript==", '"use strict";'].join(
+  "\n",
+);
 
 await Bun.build({
   banner,
   entrypoints: ["./src/index.ts"],
   env: "inline",
-  footer,
+  format: "iife",
   minify: true,
   naming: `[dir]/${pkg.name}.user.js`,
   outdir: "./dist",
 });
+
 await Bun.build({
   banner,
   entrypoints: ["./src/index.ts"],
   env: "inline",
-  footer,
+  format: "iife",
   naming: `[dir]/${pkg.name}.greasyfork.user.js`,
   outdir: "./dist",
 });
