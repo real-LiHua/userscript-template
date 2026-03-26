@@ -4,7 +4,7 @@ import pkg from "./package.json" with { type: "json" };
 /* oxlint-disable sort-keys */
 const tags = {
   "@name": pkg.name,
-  "@namespace": pkg.config.namespace ?? "http://tampermonkey.net/",
+  "@namespace": pkg.config?.namespace ?? "http://tampermonkey.net/",
   "@copyright": pkg.license,
   "@version": pkg.version,
   "@description": pkg.description,
