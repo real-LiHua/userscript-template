@@ -5,6 +5,7 @@ import pkg from "./package.json" with { type: "json" };
 const tags = {
   "@name": pkg.name,
   "@namespace": pkg.config.namespace ?? "http://tampermonkey.net/",
+  "@copyright": pkg.license,
   "@version": pkg.version,
   "@description": pkg.description,
   "@icon": pkg.config?.icon,
@@ -25,7 +26,7 @@ const tags = {
   "@noframes": pkg.config?.noframes,
   "@updateURL": pkg.config?.updateURL,
   "@downloadURL": pkg.config?.downloadURL,
-  "@supportURL": pkg.config?.supportURL ?? pkg.repository?.url ?? pkg.repository,
+  "@supportURL": pkg.bugs?.url,
   "@webRequest": pkg.config?.webRequest ?? [],
 };
 /* oxlint-enable sort-keys */

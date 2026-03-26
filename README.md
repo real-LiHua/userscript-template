@@ -7,10 +7,11 @@ A Bun-based userscript project compatible with Tampermonkey and similar browser 
 ## Features
 
 - TypeScript support with strict type checking
-- Built-in linting and formatting tools
+- Built-in linting and formatting tools (oxlint, oxfmt)
 - Tampermonkey metadata auto-generation from `package.json` config
 - ESM module support
-- Hot reload development with `tamperdav`
+- Hot reload development with tamperdav
+- Pre-commit hooks with husky
 
 ## Quick Start
 
@@ -45,21 +46,44 @@ bun run fmt        # Format code
 bun run fmt:check  # Check formatting without modifying
 bun run lint       # Lint code
 bun run lint:fix   # Auto-fix lint issues
+bun run lint:github # Lint with GitHub annotations
 ```
 
 ## Configuration
 
-Configure the userscript in `package.json` `config` field:
+Configure the userscript in `package.json`:
 
-| Field      | Description                 |
-| ---------- | --------------------------- |
-| `match`    | URL patterns to match       |
-| `include`  | URLs to include             |
-| `exclude`  | URLs to exclude             |
-| `connect`  | Allowed domains to connect  |
-| `require`  | External dependency scripts |
-| `resource` | Resource files              |
-| `run-at`   | Execution timing            |
+| Field         | Description                 | Maps to        |
+| ------------- | --------------------------- | -------------- |
+| `match`       | URL patterns to match       | `@match`       |
+| `include`     | URLs to include             | `@include`     |
+| `exclude`     | URLs to exclude             | `@exclude`     |
+| `connect`     | Allowed domains to connect  | `@connect`     |
+| `require`     | External dependency scripts | `@require`     |
+| `resource`    | Resource files              | `@resource`    |
+| `run-at`      | Execution timing            | `@run-at`      |
+| `namespace`   | Script namespace            | `@namespace`   |
+| `icon`        | Script icon URL             | `@icon`        |
+| `sandbox`     | Sandbox mode                | `@sandbox`     |
+| `antifeature` | Antifeature configs         | `@antifeature` |
+| `noframes`    | Disable frames              | `@noframes`    |
+| `updateURL`   | Update URL                  | `@updateURL`   |
+| `downloadURL` | Download URL                | `@downloadURL` |
+| `webRequest`  | WebRequest blocking         | `@webRequest`  |
+| `run-in`      | Run-in mode                 | `@run-in`      |
+
+The following fields are read from the root level of `package.json`:
+
+| Field         | Description        | Maps to        |
+| ------------- | ------------------ | -------------- |
+| `name`        | Script name        | `@name`        |
+| `version`     | Script version     | `@version`     |
+| `description` | Script description | `@description` |
+| `author`      | Script author      | `@author`      |
+| `license`     | Copyright notice   | `@copyright`   |
+| `homepage`    | Homepage URL       | `@homepage`    |
+| `keywords`    | Script tags        | `@tag`         |
+| `bugs.url`    | Support URL        | `@supportURL`  |
 
 > **Note**: `@grant` is automatically detected from code during build.
 
@@ -78,3 +102,4 @@ package.json    # Project config & metadata
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [oxlint](https://oxc.rs/) - Linter
 - [oxfmt](https://oxc.rs/) - Code formatter
+- [husky](https://typicode.github.io/husky/) - Git hooks

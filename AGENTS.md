@@ -9,6 +9,7 @@ This is a Bun-based userscript project compatible with Tampermonkey and similar 
 - Tampermonkey metadata auto-generation from `package.json` config
 - ESM module support
 - Hot reload development with tamperdav
+- Pre-commit hooks with husky
 
 ## Commands
 
@@ -22,6 +23,7 @@ This is a Bun-based userscript project compatible with Tampermonkey and similar 
 | `bun run fmt:check`    | Check formatting without modifying                           |
 | `bun run lint`         | Lint with oxlint                                             |
 | `bun run lint:fix`     | Auto-fix lint issues                                         |
+| `bun run lint:github`  | Lint with GitHub annotations                                 |
 | `bun run prepare`      | Install husky hooks (runs automatically on `bun install`)    |
 
 No test framework is currently configured.
@@ -80,17 +82,41 @@ package.json    # Project config & metadata
 
 ## Tampermonkey Integration
 
-The build script reads these from `package.json` `config`:
+The build script reads these from `package.json`:
 
-| Field      | Maps to     |
-| ---------- | ----------- |
-| `match`    | `@match`    |
-| `include`  | `@include`  |
-| `exclude`  | `@exclude`  |
-| `connect`  | `@connect`  |
-| `require`  | `@require`  |
-| `resource` | `@resource` |
-| `run-at`   | `@run-at`   |
+### `config` field
+
+| Field         | Maps to        |
+| ------------- | -------------- |
+| `match`       | `@match`       |
+| `include`     | `@include`     |
+| `exclude`     | `@exclude`     |
+| `connect`     | `@connect`     |
+| `require`     | `@require`     |
+| `resource`    | `@resource`    |
+| `run-at`      | `@run-at`      |
+| `namespace`   | `@namespace`   |
+| `icon`        | `@icon`        |
+| `sandbox`     | `@sandbox`     |
+| `antifeature` | `@antifeature` |
+| `noframes`    | `@noframes`    |
+| `updateURL`   | `@updateURL`   |
+| `downloadURL` | `@downloadURL` |
+| `webRequest`  | `@webRequest`  |
+| `run-in`      | `@run-in`      |
+
+### Root level fields
+
+| Field         | Maps to        |
+| ------------- | -------------- |
+| `name`        | `@name`        |
+| `version`     | `@version`     |
+| `description` | `@description` |
+| `author`      | `@author`      |
+| `license`     | `@copyright`   |
+| `homepage`    | `@homepage`    |
+| `keywords`    | `@tag`         |
+| `bugs.url`    | `@supportURL`  |
 
 > **Note**: `@grant` is automatically detected from code during build.
 
