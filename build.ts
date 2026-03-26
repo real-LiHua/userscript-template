@@ -1,31 +1,35 @@
 import { Glob } from "bun";
 import pkg from "./package.json" with { type: "json" };
 
+/* oxlint-disable sort-keys */
 const tags = {
-  "@author": pkg.author ?? "you",
-  "@connect": pkg.config?.connect ?? [],
-  "@description": pkg.description,
-  "@downloadURL": pkg.config?.downloadURL,
-  "@exclude": pkg.config?.exclude ?? [],
-  "@grant": [],
-  "@homepage": pkg.homepage,
-  "@icon": pkg.config?.icon,
-  "@include": pkg.config?.include ?? [],
-  "@match": pkg.config?.match ?? [],
   "@name": pkg.name,
   "@namespace": pkg.config.namespace ?? "http://tampermonkey.net/",
-  "@noframes": pkg.config?.noframes,
+  "@version": pkg.version,
+  "@description": pkg.description,
+  "@icon": pkg.config?.icon,
+  "@grant": [],
+  "@author": pkg.author ?? "you",
+  "@homepage": pkg.homepage,
+  "@antifeature": pkg.config?.antifeature ?? [],
   "@require": pkg.config?.require ?? [],
   "@resource": pkg.config?.resource ?? [],
+  "@include": pkg.config?.include ?? [],
+  "@match": pkg.config?.match ?? [],
+  "@exclude": pkg.config?.exclude ?? [],
   "@run-at": pkg.config?.["run-at"],
   "@run-in": pkg.config?.["run-in"],
   "@sandbox": pkg.config?.sandbox,
+  "@tag": pkg.keywords ?? [],
+  "@connect": pkg.config?.connect ?? [],
+  "@noframes": pkg.config?.noframes,
+  "@updateURL": pkg.config?.updateURL,
+  "@downloadURL": pkg.config?.downloadURL,
   "@supportURL":
     pkg.config?.supportURL ?? pkg.repository?.url ?? pkg.repository,
-  "@tag": pkg.keywords ?? [],
-  "@updateURL": pkg.config?.updateURL,
-  "@version": pkg.version,
+  "@webRequest": pkg.config?.webRequest ?? [],
 };
+/* oxlint-enable sort-keys */
 
 const apis = new Set<string>();
 const pattern =
