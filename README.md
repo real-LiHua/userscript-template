@@ -10,7 +10,7 @@ A Bun-based userscript project compatible with Tampermonkey and similar browser 
 - Built-in linting and formatting tools (oxlint, oxfmt)
 - Tampermonkey metadata auto-generation from `package.json` config
 - ESM module support
-- Hot reload development with tamperdav
+- Hot reload development with [TamperDAV](https://github.com/Tampermonkey/tamperdav)
 - Pre-commit hooks with husky
 
 ## Quick Start
@@ -27,9 +27,11 @@ bun install
 # Run the script directly (for testing)
 bun run src/index.ts
 
-# Or use tamperdav for hot reload (requires browser extension)
+# Or use TamperDAV for hot reload (requires browser extension)
 bun run preview
 ```
+
+TamperDAV is a WebDAV-like server that syncs Tampermonkey scripts and allows editing with an external editor. For more details, see the [TamperDAV documentation](https://github.com/Tampermonkey/tamperdav).
 
 ### Build
 
@@ -64,6 +66,7 @@ Configure the userscript in `package.json`:
 | `run-at`      | Execution timing            | `@run-at`      |
 | `namespace`   | Script namespace            | `@namespace`   |
 | `icon`        | Script icon URL             | `@icon`        |
+| `icon64`      | 64x64 script icon URL       | `@icon64`      |
 | `sandbox`     | Sandbox mode                | `@sandbox`     |
 | `antifeature` | Antifeature configs         | `@antifeature` |
 | `noframes`    | Disable frames              | `@noframes`    |
@@ -71,6 +74,8 @@ Configure the userscript in `package.json`:
 | `downloadURL` | Download URL                | `@downloadURL` |
 | `webRequest`  | WebRequest blocking         | `@webRequest`  |
 | `run-in`      | Run-in mode                 | `@run-in`      |
+| `unwrap`      | Inject without wrapper      | `@unwrap`      |
+| `tag`         | Script tags                 | `@tag`         |
 
 The following fields are read from the root level of `package.json`:
 

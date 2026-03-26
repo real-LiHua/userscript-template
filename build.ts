@@ -9,6 +9,7 @@ const tags = {
   "@version": pkg.version,
   "@description": pkg.description,
   "@icon": pkg.config?.icon,
+  "@icon64": pkg.config?.icon64,
   "@grant": [],
   "@author": pkg.author ?? "you",
   "@homepage": pkg.homepage,
@@ -28,6 +29,7 @@ const tags = {
   "@downloadURL": pkg.config?.downloadURL,
   "@supportURL": pkg.bugs?.url,
   "@webRequest": pkg.config?.webRequest ?? [],
+  "@unwrap": pkg.config?.unwrap,
 };
 /* oxlint-enable sort-keys */
 

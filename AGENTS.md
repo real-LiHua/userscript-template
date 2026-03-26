@@ -8,7 +8,7 @@ This is a Bun-based userscript project compatible with Tampermonkey and similar 
 - Built-in linting and formatting tools (oxlint, oxfmt)
 - Tampermonkey metadata auto-generation from `package.json` config
 - ESM module support
-- Hot reload development with tamperdav
+- Hot reload development with [TamperDAV](https://github.com/Tampermonkey/tamperdav)
 - Pre-commit hooks with husky
 
 ## Commands
@@ -97,6 +97,7 @@ The build script reads these from `package.json`:
 | `run-at`      | `@run-at`      |
 | `namespace`   | `@namespace`   |
 | `icon`        | `@icon`        |
+| `icon64`      | `@icon64`      |
 | `sandbox`     | `@sandbox`     |
 | `antifeature` | `@antifeature` |
 | `noframes`    | `@noframes`    |
@@ -104,6 +105,8 @@ The build script reads these from `package.json`:
 | `downloadURL` | `@downloadURL` |
 | `webRequest`  | `@webRequest`  |
 | `run-in`      | `@run-in`      |
+| `unwrap`      | `@unwrap`      |
+| `tag`         | `@tag`         |
 
 ### Root level fields
 
@@ -121,3 +124,5 @@ The build script reads these from `package.json`:
 > **Note**: `@grant` is automatically detected from code during build.
 
 Available types: `@types/tampermonkey` is included in devDependencies.
+
+For detailed Tampermonkey API documentation, see [Tampermonkey Documentation](https://www.tampermonkey.net/documentation.php).
