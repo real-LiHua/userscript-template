@@ -1,0 +1,41 @@
+{
+  "name": "userscript",
+  "version": "v0.0.1",
+  "private": true,
+  "type": "module",
+  "module": "src/index.ts",
+  "scripts": {
+    "build": "bun run build.ts",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "prepare": "husky",
+    "preview": "bun run node_modules/tamperdav"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.11",
+    "@types/tampermonkey": "^5.0.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "oxfmt": "^0.42.0",
+    "oxlint": "^1.57.0",
+    "tamperdav": "github:Tampermonkey/tamperdav"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern",
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "bun run lint"
+  },
+  "config": {
+    "grant": [
+      "GM_log",
+      "unsafeWindow"
+    ],
+    "match": [
+      "https://example.com/"
+    ]
+  }
+}
