@@ -25,15 +25,13 @@ const tags = {
   "@noframes": pkg.config?.noframes,
   "@updateURL": pkg.config?.updateURL,
   "@downloadURL": pkg.config?.downloadURL,
-  "@supportURL":
-    pkg.config?.supportURL ?? pkg.repository?.url ?? pkg.repository,
+  "@supportURL": pkg.config?.supportURL ?? pkg.repository?.url ?? pkg.repository,
   "@webRequest": pkg.config?.webRequest ?? [],
 };
 /* oxlint-enable sort-keys */
 
 const apis = new Set<string>();
-const pattern =
-  /\b(GM[._][^()},;\n]+|unsafeWindow|window\.(?:close|focus|onurlchange))[.,()};]/g;
+const pattern = /\b(GM[._][^()},;\n]+|unsafeWindow|window\.(?:close|focus|onurlchange))[.,()};]/g;
 
 for (const file of await Array.fromAsync(
   new Glob("**/*.ts").scan({ absolute: true, cwd: "./src" }),
