@@ -78,5 +78,14 @@ await Bun.build({
   env: "inline",
   footer,
   minify: true,
+  naming: `[dir]/${pkg.name}.user.js`,
+  outdir: "./dist",
+});
+await Bun.build({
+  banner,
+  entrypoints: ["./src/index.ts"],
+  env: "inline",
+  footer,
+  naming: `[dir]/${pkg.name}.greasyfork.user.js`,
   outdir: "./dist",
 });
