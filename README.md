@@ -56,11 +56,12 @@ Configure the userscript in `package.json` `config` field:
 | `match`    | URL patterns to match       |
 | `include`  | URLs to include             |
 | `exclude`  | URLs to exclude             |
-| `grant`    | GM API permissions          |
 | `connect`  | Allowed domains to connect  |
 | `require`  | External dependency scripts |
 | `resource` | Resource files              |
 | `run-at`   | Execution timing            |
+
+> **Note**: `@grant` is automatically detected from code during build.
 
 ## Project Structure
 

@@ -42,11 +42,12 @@ bun run lint:fix   # 自动修复
 | `match`    | 匹配的 URL 模式 |
 | `include`  | 包含的 URL      |
 | `exclude`  | 排除的 URL      |
-| `grant`    | GM API 权限     |
 | `connect`  | 允许连接的域名  |
 | `require`  | 外部依赖脚本    |
 | `resource` | 资源文件        |
 | `run-at`   | 运行时机        |
+
+> **注意**：`@grant` 在构建时会自动从代码中检测生成。
 
 ## 技术栈
 

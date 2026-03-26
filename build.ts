@@ -1,3 +1,4 @@
+import { Glob } from "bun";
 import pkg from "./package.json" with { type: "json" };
 
 const tags = {
@@ -11,7 +12,7 @@ const tags = {
   "@include": pkg.config?.include ?? [],
   "@exclude": pkg.config?.exclude ?? [],
   "@icon": pkg.config?.icon,
-  "@grant": pkg.config?.grant ?? [],
+  "@grant": [],
   "@connect": pkg.config?.connect ?? [],
   "@require": pkg.config?.require ?? [],
   "@resource": pkg.config?.resource ?? [],
@@ -25,6 +26,23 @@ const tags = {
     pkg.config?.supportURL ?? pkg.repository?.url ?? pkg.repository,
   "@tag": pkg.keywords ?? [],
 };
+
+const apis = new Set<string>();
+const pattern =
+  /\b(GM[._][^()},;\n]+|unsafeWindow|window\.(?:close|focus|onurlchange))[.,()};]/g;
+
+for (const file of await Array.fromAsync(
+  new Glob("**/*.ts").scan({ cwd: "./src", absolute: true }),
+)) {
+  let match;
+  while ((match = pattern.exec(await Bun.file(file).text())) !== null) {
+    apis.add(match[1]);
+  }
+}
+
+for (const api of apis) {
+  (tags["@grant"] as string[]).push(api);
+}
 
 const maxLabelLen = Math.max(...Object.keys(tags).map((k) => k.length));
 
@@ -50,6 +68,8 @@ const footer = "})();";
 await Bun.build({
   entrypoints: ["./src/index.ts"],
   outdir: "./dist",
+  env: "inline",
+  minify: true,
   banner,
   footer,
 });

@@ -30,10 +30,6 @@
     "*.{js,jsx,ts,tsx,mjs,cjs}": "bun run lint"
   },
   "config": {
-    "grant": [
-      "GM_log",
-      "unsafeWindow"
-    ],
     "match": [
       "https://example.com/"
     ]

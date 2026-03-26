@@ -87,10 +87,11 @@ The build script reads these from `package.json` `config`:
 | `match`    | `@match`    |
 | `include`  | `@include`  |
 | `exclude`  | `@exclude`  |
-| `grant`    | `@grant`    |
 | `connect`  | `@connect`  |
 | `require`  | `@require`  |
 | `resource` | `@resource` |
 | `run-at`   | `@run-at`   |
+
+> **Note**: `@grant` is automatically detected from code during build.
 
 Available types: `@types/tampermonkey` is included in devDependencies.
