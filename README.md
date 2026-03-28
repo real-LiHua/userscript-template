@@ -55,40 +55,44 @@ bun run lint:github # Lint with GitHub annotations
 
 Configure the userscript in `package.json`:
 
-| Field         | Description                 | Maps to        |
-| ------------- | --------------------------- | -------------- |
-| `match`       | URL patterns to match       | `@match`       |
-| `include`     | URLs to include             | `@include`     |
-| `exclude`     | URLs to exclude             | `@exclude`     |
-| `connect`     | Allowed domains to connect  | `@connect`     |
-| `require`     | External dependency scripts | `@require`     |
-| `resource`    | Resource files              | `@resource`    |
-| `run-at`      | Execution timing            | `@run-at`      |
-| `namespace`   | Script namespace            | `@namespace`   |
-| `icon`        | Script icon URL             | `@icon`        |
-| `icon64`      | 64x64 script icon URL       | `@icon64`      |
-| `sandbox`     | Sandbox mode                | `@sandbox`     |
-| `antifeature` | Antifeature configs         | `@antifeature` |
-| `noframes`    | Disable frames              | `@noframes`    |
-| `updateURL`   | Update URL                  | `@updateURL`   |
-| `downloadURL` | Download URL                | `@downloadURL` |
-| `webRequest`  | WebRequest blocking         | `@webRequest`  |
-| `run-in`      | Run-in mode                 | `@run-in`      |
-| `unwrap`      | Inject without wrapper      | `@unwrap`      |
-| `tag`         | Script tags                 | `@tag`         |
+| Field                | Description                                      | Maps to               |
+| -------------------- | ------------------------------------------------ | --------------------- |
+| `match`              | URL patterns to match                            | `@match`              |
+| `include`            | URLs to include                                  | `@include`            |
+| `exclude`            | URLs to exclude                                  | `@exclude`            |
+| `connect`            | Allowed domains to connect                       | `@connect`            |
+| `require`            | External dependency scripts                      | `@require`            |
+| `resource`           | Resource files                                   | `@resource`           |
+| `run-at`             | Execution timing                                 | `@run-at`             |
+| `namespace`          | Script namespace                                 | `@namespace`          |
+| `icon`               | Script icon URL                                  | `@icon`               |
+| `icon64`             | 64x64 script icon URL                            | `@icon64`             |
+| `sandbox`            | Sandbox mode                                     | `@sandbox`            |
+| `antifeature`        | Antifeature configs                              | `@antifeature`        |
+| `noframes`           | Disable frames                                   | `@noframes`           |
+| `updateURL`          | Update URL                                       | `@updateURL`          |
+| `downloadURL`        | Download URL                                     | `@downloadURL`        |
+| `webRequest`         | WebRequest blocking                              | `@webRequest`         |
+| `run-in`             | Run-in mode                                      | `@run-in`             |
+| `unwrap`             | Inject without wrapper                           | `@unwrap`             |
+| `tag`                | Script tags                                      | `@tag`                |
+| `compatible`         | Browser compatibility (e.g. `firefox`, `chrome`) | `@compatible`         |
+| `incompatible`       | Browser incompatibility                          | `@incompatible`       |
+| `contributionAmount` | Suggested donation amount                        | `@contributionAmount` |
 
 The following fields are read from the root level of `package.json`:
 
-| Field         | Description        | Maps to        |
-| ------------- | ------------------ | -------------- |
-| `name`        | Script name        | `@name`        |
-| `version`     | Script version     | `@version`     |
-| `description` | Script description | `@description` |
-| `author`      | Script author      | `@author`      |
-| `license`     | Copyright notice   | `@copyright`   |
-| `homepage`    | Homepage URL       | `@homepage`    |
-| `keywords`    | Script tags        | `@tag`         |
-| `bugs.url`    | Support URL        | `@supportURL`  |
+| Field         | Description                      | Maps to            |
+| ------------- | -------------------------------- | ------------------ |
+| `name`        | Script name                      | `@name`            |
+| `version`     | Script version                   | `@version`         |
+| `description` | Script description               | `@description`     |
+| `author`      | Script author                    | `@author`          |
+| `license`     | Copyright notice                 | `@copyright`       |
+| `homepage`    | Homepage URL                     | `@homepage`        |
+| `keywords`    | Script tags                      | `@tag`             |
+| `bugs.url`    | Support URL                      | `@supportURL`      |
+| `funding`     | Donation URL (for script author) | `@contributionURL` |
 
 > **Note**: `@grant` is automatically detected from code during build.
 

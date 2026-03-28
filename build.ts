@@ -30,6 +30,10 @@ const tags = {
   "@supportURL": pkg.bugs?.url,
   "@webRequest": pkg.config?.webRequest ?? [],
   "@unwrap": pkg.config?.unwrap,
+  "@contributionURL": pkg.funding?.url ?? pkg.funding,
+  "@contributionAmount": pkg.config?.contributionAmount,
+  "@compatible": pkg.config?.compatible ?? [],
+  "@incompatible": pkg.config?.incompatible ?? [],
 };
 /* oxlint-enable sort-keys */
 

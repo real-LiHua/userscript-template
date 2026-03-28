@@ -57,40 +57,44 @@ bun run lint:github # GitHub 格式输出
 
 `config` 字段：
 
-| 字段          | 说明               | 映射到         |
-| ------------- | ------------------ | -------------- |
-| `match`       | 匹配的 URL 模式    | `@match`       |
-| `include`     | 包含的 URL         | `@include`     |
-| `exclude`     | 排除的 URL         | `@exclude`     |
-| `connect`     | 允许连接的域名     | `@connect`     |
-| `require`     | 外部依赖脚本       | `@require`     |
-| `resource`    | 资源文件           | `@resource`    |
-| `run-at`      | 运行时机           | `@run-at`      |
-| `namespace`   | 脚本命名空间       | `@namespace`   |
-| `icon`        | 脚本图标 URL       | `@icon`        |
-| `icon64`      | 64x64 脚本图标 URL | `@icon64`      |
-| `sandbox`     | 沙箱模式           | `@sandbox`     |
-| `antifeature` | 反功能配置         | `@antifeature` |
-| `noframes`    | 禁用框架           | `@noframes`    |
-| `updateURL`   | 更新 URL           | `@updateURL`   |
-| `downloadURL` | 下载 URL           | `@downloadURL` |
-| `webRequest`  | WebRequest 阻塞    | `@webRequest`  |
-| `run-in`      | 运行模式           | `@run-in`      |
-| `unwrap`      | 无包装注入         | `@unwrap`      |
-| `tag`         | 脚本标签           | `@tag`         |
+| 字段                 | 说明                                  | 映射到                |
+| -------------------- | ------------------------------------- | --------------------- |
+| `match`              | 匹配的 URL 模式                       | `@match`              |
+| `include`            | 包含的 URL                            | `@include`            |
+| `exclude`            | 排除的 URL                            | `@exclude`            |
+| `connect`            | 允许连接的域名                        | `@connect`            |
+| `require`            | 外部依赖脚本                          | `@require`            |
+| `resource`           | 资源文件                              | `@resource`           |
+| `run-at`             | 运行时机                              | `@run-at`             |
+| `namespace`          | 脚本命名空间                          | `@namespace`          |
+| `icon`               | 脚本图标 URL                          | `@icon`               |
+| `icon64`             | 64x64 脚本图标 URL                    | `@icon64`             |
+| `sandbox`            | 沙箱模式                              | `@sandbox`            |
+| `antifeature`        | 反功能配置                            | `@antifeature`        |
+| `noframes`           | 禁用框架                              | `@noframes`           |
+| `updateURL`          | 更新 URL                              | `@updateURL`          |
+| `downloadURL`        | 下载 URL                              | `@downloadURL`        |
+| `webRequest`         | WebRequest 阻塞                       | `@webRequest`         |
+| `run-in`             | 运行模式                              | `@run-in`             |
+| `unwrap`             | 无包装注入                            | `@unwrap`             |
+| `tag`                | 脚本标签                              | `@tag`                |
+| `compatible`         | 浏览器兼容性 (如 `firefox`、`chrome`) | `@compatible`         |
+| `incompatible`       | 浏览器不兼容                          | `@incompatible`       |
+| `contributionAmount` | 建议捐赠金额                          | `@contributionAmount` |
 
 根级字段：
 
-| 字段          | 说明     | 映射到         |
-| ------------- | -------- | -------------- |
-| `name`        | 脚本名称 | `@name`        |
-| `version`     | 脚本版本 | `@version`     |
-| `description` | 脚本描述 | `@description` |
-| `author`      | 脚本作者 | `@author`      |
-| `license`     | 版权声明 | `@copyright`   |
-| `homepage`    | 主页 URL | `@homepage`    |
-| `keywords`    | 脚本标签 | `@tag`         |
-| `bugs.url`    | 支持 URL | `@supportURL`  |
+| 字段          | 说明                    | 映射到             |
+| ------------- | ----------------------- | ------------------ |
+| `name`        | 脚本名称                | `@name`            |
+| `version`     | 脚本版本                | `@version`         |
+| `description` | 脚本描述                | `@description`     |
+| `author`      | 脚本作者                | `@author`          |
+| `license`     | 版权声明                | `@copyright`       |
+| `homepage`    | 主页 URL                | `@homepage`        |
+| `keywords`    | 脚本标签                | `@tag`             |
+| `bugs.url`    | 支持 URL                | `@supportURL`      |
+| `funding`     | 捐赠链接 (赞助脚本作者) | `@contributionURL` |
 
 > **注意**：`@grant` 在构建时会自动从代码中检测生成。
 

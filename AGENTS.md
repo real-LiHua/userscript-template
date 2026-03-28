@@ -86,40 +86,44 @@ The build script reads these from `package.json`:
 
 ### `config` field
 
-| Field         | Maps to        |
-| ------------- | -------------- |
-| `match`       | `@match`       |
-| `include`     | `@include`     |
-| `exclude`     | `@exclude`     |
-| `connect`     | `@connect`     |
-| `require`     | `@require`     |
-| `resource`    | `@resource`    |
-| `run-at`      | `@run-at`      |
-| `namespace`   | `@namespace`   |
-| `icon`        | `@icon`        |
-| `icon64`      | `@icon64`      |
-| `sandbox`     | `@sandbox`     |
-| `antifeature` | `@antifeature` |
-| `noframes`    | `@noframes`    |
-| `updateURL`   | `@updateURL`   |
-| `downloadURL` | `@downloadURL` |
-| `webRequest`  | `@webRequest`  |
-| `run-in`      | `@run-in`      |
-| `unwrap`      | `@unwrap`      |
-| `tag`         | `@tag`         |
+| Field                | Maps to               |
+| -------------------- | --------------------- |
+| `match`              | `@match`              |
+| `include`            | `@include`            |
+| `exclude`            | `@exclude`            |
+| `connect`            | `@connect`            |
+| `require`            | `@require`            |
+| `resource`           | `@resource`           |
+| `run-at`             | `@run-at`             |
+| `namespace`          | `@namespace`          |
+| `icon`               | `@icon`               |
+| `icon64`             | `@icon64`             |
+| `sandbox`            | `@sandbox`            |
+| `antifeature`        | `@antifeature`        |
+| `noframes`           | `@noframes`           |
+| `updateURL`          | `@updateURL`          |
+| `downloadURL`        | `@downloadURL`        |
+| `webRequest`         | `@webRequest`         |
+| `run-in`             | `@run-in`             |
+| `unwrap`             | `@unwrap`             |
+| `tag`                | `@tag`                |
+| `compatible`         | `@compatible`         |
+| `incompatible`       | `@incompatible`       |
+| `contributionAmount` | `@contributionAmount` |
 
 ### Root level fields
 
-| Field         | Maps to        |
-| ------------- | -------------- |
-| `name`        | `@name`        |
-| `version`     | `@version`     |
-| `description` | `@description` |
-| `author`      | `@author`      |
-| `license`     | `@copyright`   |
-| `homepage`    | `@homepage`    |
-| `keywords`    | `@tag`         |
-| `bugs.url`    | `@supportURL`  |
+| Field         | Maps to            |
+| ------------- | ------------------ |
+| `name`        | `@name`            |
+| `version`     | `@version`         |
+| `description` | `@description`     |
+| `author`      | `@author`          |
+| `license`     | `@copyright`       |
+| `homepage`    | `@homepage`        |
+| `keywords`    | `@tag`             |
+| `bugs.url`    | `@supportURL`      |
+| `funding`     | `@contributionURL` |
 
 > **Note**: `@grant` is automatically detected from code during build.
 
