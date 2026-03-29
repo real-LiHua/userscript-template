@@ -70,21 +70,13 @@ const banner = ["// ==UserScript==", ...headerLines, "// ==/UserScript==", '"use
   "\n",
 );
 
-await Bun.build({
+const config = {
   banner,
   entrypoints: ["./src/index.ts"],
   env: "inline",
   format: "iife",
-  minify: true,
-  naming: `[dir]/${pkg.name}.user.js`,
   outdir: "./dist",
-});
+};
 
-await Bun.build({
-  banner,
-  entrypoints: ["./src/index.ts"],
-  env: "inline",
-  format: "iife",
-  naming: `[dir]/${pkg.name}.greasyfork.user.js`,
-  outdir: "./dist",
-});
+await Bun.build({ ...config, minify: true, naming: `[dir]/${pkg.name}.user.js` });
+await Bun.build({ ...config, naming: `[dir]/${pkg.name}.greasyfork.user.js` });
