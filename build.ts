@@ -38,10 +38,10 @@ const tags = {
 /* oxlint-enable sort-keys */
 
 const apis = new Set<string>();
-const pattern = /\b(GM[._][^()},;\n]+|unsafeWindow|window\.(?:close|focus|onurlchange))[.,()};]/g;
+const pattern = /\b(GM[._][^()},:;\n]+|unsafeWindow|window\.(?:close|focus|onurlchange))[.,()}:;]/g;
 
 for (const file of await Array.fromAsync(
-  new Glob("**/*.ts").scan({ absolute: true, cwd: "./src" }),
+  new Glob("**/*.ts{,x}").scan({ absolute: true, cwd: "./src" }),
 )) {
   let match;
   while ((match = pattern.exec(await Bun.file(file).text())) !== null) {
