@@ -37,7 +37,7 @@ const tags = {
 };
 /* oxlint-enable sort-keys */
 
-const apis = new Set<string>();
+const apis = new Set<string>(pkg.config?.grant);
 const pattern = /\b(GM[._][^()},:;\n]+|unsafeWindow|window\.(?:close|focus|onurlchange))[.,()}:;]/g;
 
 for (const file of await Array.fromAsync(
